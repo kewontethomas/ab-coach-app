@@ -5,59 +5,114 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ab Coach</title>
-
     <link rel="stylesheet" href="style.css" />
     <link rel="manifest" href="manifest.json" />
-    <meta name="theme-color" content="#57d163" />
-    <link rel="icon" href="icon-192.png" />
-    <link rel="apple-touch-icon" href="icon-192.png" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Ab Coach" />
 </head>
 
 <body>
-
     <main class="app">
+        <section class="hero-card">
+            <div class="top-row">
+                <div>
+                    <p class="eyebrow">Daily Core System</p>
+                    <h1>Ab Coach</h1>
+                </div>
+                <div class="app-icon-preview" aria-hidden="true">AC</div>
+            </div>
+
+            <p class="subtitle">A realistic core workout coach that adjusts to your energy, time, weight, and consistency.</p>
+
+            <section class="stats-grid" aria-label="Progress stats">
+                <article class="stat-card">
+                    <span class="stat-number" id="completedNumber">0</span>
+                    <span class="stat-label">Completed</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-number" id="streakNumber">0</span>
+                    <span class="stat-label">Day Streak</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-number" id="lastWorkoutText">—</span>
+                    <span class="stat-label">Last Workout</span>
+                </article>
+            </section>
+        </section>
+
         <section class="card">
+            <h2>Build Today’s Plan</h2>
 
-            <div class="app-badge">⚡</div>
-            <h1>Ab Coach</h1>
-            <p class="subtitle">Build your core one realistic workout at a time.</p>
+            <div class="form-grid">
+                <div class="field-group">
+                    <label for="weightInput">Current weight</label>
+                    <input type="number" id="weightInput" placeholder="Example: 260" inputmode="numeric" />
+                </div>
 
-            <label for="weightInput">Current weight</label>
-            <input type="number" id="weightInput" placeholder="Example: 250" />
+                <div class="field-group">
+                    <label for="heightInput">Current height</label>
+                    <input type="text" id="heightInput" placeholder="Example: 6'2" />
+                </div>
 
-            <label for="heightInput">Current height</label>
-            <input type="text" id="heightInput" placeholder="Example: 6'2" />
+                <div class="field-group">
+                    <label for="energyLevel">Energy level today</label>
+                    <select id="energyLevel">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
 
-            <label for="energyLevel">Energy level today</label>
-            <select id="energyLevel">
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-            </select>
+                <div class="field-group">
+                    <label for="workoutTime">Workout time available</label>
+                    <select id="workoutTime">
+                        <option value="5">5 minutes</option>
+                        <option value="10" selected>10 minutes</option>
+                        <option value="15">15 minutes</option>
+                        <option value="20">20 minutes</option>
+                    </select>
+                </div>
 
-            <label for="workoutTime">Workout time available</label>
-            <select id="workoutTime">
-                <option value="5">5 minutes</option>
-                <option value="10">10 minutes</option>
-                <option value="15">15 minutes</option>
-                <option value="20">20 minutes</option>
-            </select>
+                <div class="field-group full-width">
+                    <label for="dietQuality">Diet today</label>
+                    <select id="dietQuality">
+                        <option value="rough">Rough day</option>
+                        <option value="okay" selected>Okay</option>
+                        <option value="good">Good</option>
+                    </select>
+                </div>
+            </div>
 
-            <label for="dietQuality">Diet today</label>
-            <select id="dietQuality">
-                <option value="rough">Rough day</option>
-                <option value="okay">Okay</option>
-                <option value="good">Good</option>
-            </select>
+            <div class="button-row">
+                <button id="generateBtn" class="primary-btn">Generate Workout</button>
+                <button id="completeBtn" class="secondary-btn">Complete Workout</button>
+            </div>
 
-            <button id="generateBtn">Generate Today's Workout</button>
-            <button id="completeBtn">Complete Workout</button>
+            <p class="helper-text" id="statusMessage">Generate a plan first, then tap complete after you actually finish it.</p>
+        </section>
 
-            <section id="workoutResult" class="result"></section>
+        <section id="workoutResult" class="result empty-state">
+            <h2>Ready when you are.</h2>
+            <p>Choose your real situation today. The app will keep the workout realistic.</p>
+        </section>
 
+        <section class="card">
+            <div class="section-heading-row">
+                <h2>Progress</h2>
+                <button id="resetBtn" class="text-btn">Reset</button>
+            </div>
             <p id="progressText" class="progress-text">Workouts completed: 0</p>
-
             <p id="streakText" class="progress-text">Current streak: 0 days</p>
+            <div class="chart-wrap">
+                <canvas id="historyChart" width="340" height="140" aria-label="Workout history chart"></canvas>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Reminder</h2>
+            <p class="helper-text">Browser reminders work on supported devices after permission is allowed. Some iPhone/browser setups may limit notifications.</p>
+            <button id="reminderBtn" class="secondary-btn">Enable Daily Reminder</button>
         </section>
     </main>
 
