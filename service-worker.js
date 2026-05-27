@@ -1,4 +1,4 @@
-const CACHE_NAME = "ab-coach-cache-v3";
+const CACHE_NAME = "ab-coach-cache-v4";
 
 const FILES_TO_CACHE = [
     "./",
