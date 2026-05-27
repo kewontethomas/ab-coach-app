@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #07120d;
+    --card: rgba(18, 30, 24, 0.92);
+    --card-border: rgba(144, 238, 144, 0.16);
+    --field: #14231b;
+    --field-border: #263c30;
+    --text: #f4fff7;
+    --muted: #aebfb4;
+    --primary: #57d163;
+    --primary-dark: #2c8f3b;
+    --accent: #d8ff7a;
+    --shadow: rgba(0, 0, 0, 0.45);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(87, 209, 99, 0.22), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(216, 255, 122, 0.12), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app {
+    width: 100%;
+    max-width: 430px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    padding: 28px;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 24px 60px var(--shadow);
+    backdrop-filter: blur(14px);
+}
+
+.app-badge {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 4px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #07120d;
+    font-size: 30px;
+    box-shadow: 0 12px 30px rgba(87, 209, 99, 0.28);
+}
+
+h1 {
+    text-align: center;
+    font-size: 34px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+label {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: bold;
+    letter-spacing: 0.2px;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 16px;
+    font-size: 16px;
+    outline: none;
+}
+
+input,
+select {
+    background-color: var(--field);
+    color: var(--text);
+    border: 1px solid var(--field-border);
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(87, 209, 99, 0.15);
+}
+
+button {
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#generateBtn {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #07120d;
+    margin-top: 4px;
+}
+
+#completeBtn {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid rgba(87, 209, 99, 0.45);
+}
+
+.result {
+    background: linear-gradient(180deg, rgba(20, 35, 27, 0.98), rgba(12, 22, 17, 0.98));
+    border: 1px solid rgba(144, 238, 144, 0.12);
+    padding: 18px;
+    border-radius: 20px;
+    min-height: 110px;
+    line-height: 1.5;
+}
+
+.result:empty::before {
+    content: "Your workout will appear here.";
+    color: var(--muted);
+}
+
+.result h2 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.result h3 {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    color: var(--accent);
+    font-size: 15px;
+}
+
+.result p {
+    color: #e8f7ed;
+    margin-top: 5px;
+}
+
+.motivation {
+    margin-top: 12px;
+    font-weight: bold;
+    color: var(--primary) !important;
+}
+
+.progress-text {
+    background: rgba(20, 35, 27, 0.8);
+    border: 1px solid rgba(144, 238, 144, 0.1);
+    border-radius: 16px;
+    padding: 13px;
+    text-align: center;
+    color: var(--muted);
+    font-weight: bold;
+}
+
+@media (max-width: 380px) {
+    .card {
+        padding: 22px;
+        border-radius: 24px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}

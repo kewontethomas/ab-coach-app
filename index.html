@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ab Coach</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#57d163" />
+    <link rel="icon" href="icon-192.png" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+</head>
+
+<body>
+
+    <main class="app">
+        <section class="card">
+
+            <div class="app-badge">⚡</div>
+            <h1>Ab Coach</h1>
+            <p class="subtitle">Build your core one realistic workout at a time.</p>
+
+            <label for="weightInput">Current weight</label>
+            <input type="number" id="weightInput" placeholder="Example: 250" />
+
+            <label for="heightInput">Current height</label>
+            <input type="text" id="heightInput" placeholder="Example: 6'2" />
+
+            <label for="energyLevel">Energy level today</label>
+            <select id="energyLevel">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <label for="workoutTime">Workout time available</label>
+            <select id="workoutTime">
+                <option value="5">5 minutes</option>
+                <option value="10">10 minutes</option>
+                <option value="15">15 minutes</option>
+                <option value="20">20 minutes</option>
+            </select>
+
+            <label for="dietQuality">Diet today</label>
+            <select id="dietQuality">
+                <option value="rough">Rough day</option>
+                <option value="okay">Okay</option>
+                <option value="good">Good</option>
+            </select>
+
+            <button id="generateBtn">Generate Today's Workout</button>
+            <button id="completeBtn">Complete Workout</button>
+
+            <section id="workoutResult" class="result"></section>
+
+            <p id="progressText" class="progress-text">Workouts completed: 0</p>
+
+            <p id="streakText" class="progress-text">Current streak: 0 days</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
